@@ -18,9 +18,12 @@ function getRandomWords(words, numWords) {
 
 function getAnswerOptions(words, word) {
   const correctAnswer = { answerWord: word.ukr, isCorrect: true };
-  const incorrectAnswers = getRandomWords(words, 3)
-    .filter((w) => w.id !== word.id)
-    .map((w) => ({ answerWord: w.ukr, isCorrect: false }));
+
+  const wordsForIncorectAnswers = words.filter((w) => w.id !== word.id);
+  const incorrectAnswers = getRandomWords(wordsForIncorectAnswers, 3).map(
+    (w) => ({ answerWord: w.ukr, isCorrect: false })
+  );
+
   return shuffleArray([correctAnswer, ...incorrectAnswers]);
 }
 
