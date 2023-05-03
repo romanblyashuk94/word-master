@@ -6,13 +6,16 @@ export const generateQuiz = (words: Word[]): Question[] => {
 
   const questions = quizWords.map((word) => {
     const answerOptions = getAnswerOptions(words, word);
+
     return { questionWord: word.eng, answerOptions };
   });
+
   return questions;
 };
 
 function getRandomWords(words, numWords) {
   const shuffled = [...words].sort(() => 0.5 - Math.random());
+
   return shuffled.slice(0, numWords);
 }
 
@@ -29,9 +32,11 @@ function getAnswerOptions(words, word) {
 
 function shuffleArray(array) {
   const shuffled = [...array];
+
   for (let i = shuffled.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
   }
+
   return shuffled;
 }

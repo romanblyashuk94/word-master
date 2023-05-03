@@ -28,7 +28,7 @@ export default function Navbar() {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
       <Typography variant="h6" sx={{ my: 2 }}>
-        MUI
+        WordMaster
       </Typography>
       <Divider />
       <List>
