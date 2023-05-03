@@ -8,11 +8,9 @@ export interface WordsState {
 const getInitialVocabulary = () => {
   const localStorageVocabulary = localStorage.getItem("vocabulary");
 
-  if (localStorageVocabulary) {
-    return JSON.parse(localStorage.getItem("vocabulary"));
-  }
-
-  return [];
+  return localStorageVocabulary
+    ? JSON.parse(localStorage.getItem("vocabulary"))
+    : [];
 };
 
 const initialState: WordsState = {

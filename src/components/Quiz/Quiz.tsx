@@ -13,7 +13,7 @@ function Quiz({ onAnswer }) {
       </div>
       <div className={s.answerOptions}>
         {quiz[currentQuestionNumber - 1].answerOptions.map(option => (
-          <Button variant="outlined" onClick={() => onAnswer(option)}>{option.answerWord}</Button>
+          <Button key={option.id} variant="outlined" onClick={() => onAnswer(option)}>{option.answerWord}</Button>
         ))}
       </div>
     </div>

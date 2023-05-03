@@ -1,3 +1,4 @@
+import { uid } from "uid";
 import { Question } from "../types/Question";
 import { Word } from "../types/Word";
 
@@ -20,11 +21,11 @@ function getRandomWords(words, numWords) {
 }
 
 function getAnswerOptions(words, word) {
-  const correctAnswer = { answerWord: word.ukr, isCorrect: true };
+  const correctAnswer = { id: uid(), answerWord: word.ukr, isCorrect: true };
 
   const wordsForIncorectAnswers = words.filter((w) => w.id !== word.id);
   const incorrectAnswers = getRandomWords(wordsForIncorectAnswers, 3).map(
-    (w) => ({ answerWord: w.ukr, isCorrect: false })
+    (w) => ({ id: uid(), answerWord: w.ukr, isCorrect: false })
   );
 
   return shuffleArray([correctAnswer, ...incorrectAnswers]);

@@ -1,0 +1,45 @@
+@import '../../base_styles/mixins';
+
+.previousResults {
+  margin-top: 50px;
+
+  .title {
+    font-size: 28px;
+  }
+
+  .subtitle {
+    font-weight: 600;
+  }
+
+  .resultList {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    @include onTablet {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: stretch;
+    }
+  }
+
+  .resultItem {
+    width: 100%;
+    max-width: 328px;
+    padding: 15px;
+    border: 1px solid gray;
+    border-radius: 5px;
+
+    @include onTablet {
+      width: calc(50% - (16px * 1 / 2));
+      max-width: none;
+    }
+
+    @include onDesktop {
+      width: calc(33.333333% - (29px * 2 / 3));
+    }
+  }
+}

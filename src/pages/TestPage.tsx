@@ -5,12 +5,16 @@ import { generateQuiz } from "../helpers/generateQuiz";
 import { useState } from "react";
 import Quiz from "../components/Quiz/Quiz";
 import ResultBoard from "../components/ResultBoard/ResultBoard";
+import { uid } from "uid";
+import { Result } from "../types/Result";
+import PreviousResults from "../components/PreviousResults/PreviousResults";
+
 
 function TestPage() {
   const dispatch = useAppDispatch();
   const { vocabulary } = useAppSelector(state => state.words);
-  const { quiz, currentQuestionNumber, isQuizDone } = useAppSelector(state => state.quize);
-  const [errorMessage, setErrorMessage] = useState('')
+  const { quiz, currentQuestionNumber, isQuizDone, mistakes, previousResults } = useAppSelector(state => state.quize);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handdleQuizStart = () => {
     if (vocabulary.length < 10) {
@@ -25,10 +29,18 @@ function TestPage() {
 
   const handleAnswer = (answer) => {
     if (!answer.isCorrect) {
-      dispatch(quizActions.addMistake(quiz[currentQuestionNumber - 1].questionWord))
+      dispatch(quizActions.addMistake(quiz[currentQuestionNumber - 1].questionWord));
     }
 
     if (currentQuestionNumber === 10) {
+      const result: Result = {
+        id: uid(),
+        time: new Date().toLocaleString(),
+        resultMark: `${10 - mistakes.length}/10`,
+        mistakes
+      }
+
+      dispatch(quizActions.addResult(result))
       dispatch(quizActions.setIsQuizDone(true))
 
       return
@@ -58,6 +70,8 @@ function TestPage() {
             : <Quiz onAnswer={handleAnswer} />}
         </Paper>
       )}
+
+      {previousResults.length !== 0 && <PreviousResults />}
 
     </div>
   );

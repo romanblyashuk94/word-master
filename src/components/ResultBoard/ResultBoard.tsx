@@ -16,7 +16,7 @@ function ResultBoard() {
             <p className={s.mistakesMessage}>You made mistakes in the next words:</p>
             <ul className={s.mistakesList}>
               {mistakes.map(word => (
-                <li>{word}</li>
+                <li key={word}>{word}</li>
               ))}
             </ul>
           </div>
