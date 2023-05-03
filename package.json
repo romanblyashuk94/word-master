@@ -1,7 +1,7 @@
 {
   "name": "word-master",
   "version": "0.1.0",
-  "homepage": "https://romanbliashuk94.github.io/word-master",
+  "homepage": "https://romanblyashuk94.github.io/word-master",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.8",
