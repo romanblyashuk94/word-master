@@ -1,0 +1,21 @@
+.result {
+  text-align: center;
+
+  .resultStat {
+    margin-bottom: 10px;
+    font-size: 24px;
+  }
+
+  .succeesMessage {
+    font-size: 24px;
+    color: green;
+  }
+
+  .mistakesMessage {
+    margin-bottom: 10px;
+  }
+
+  .mistakesList {
+    font-weight: 600;
+  }
+}
