@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/word-master/static/css/main.f9676791.css",
+    "main.js": "/word-master/static/js/main.8325039d.js",
+    "index.html": "/word-master/index.html",
+    "main.f9676791.css.map": "/word-master/static/css/main.f9676791.css.map",
+    "main.8325039d.js.map": "/word-master/static/js/main.8325039d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f9676791.css",
+    "static/js/main.8325039d.js"
+  ]
+}
