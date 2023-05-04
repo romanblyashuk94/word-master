@@ -28,16 +28,20 @@ function TestPage() {
   }
 
   const handleAnswer = (answer) => {
+    const newMistakes = [...mistakes];
+    const currentWord = quiz[currentQuestionNumber - 1].questionWord;
+
     if (!answer.isCorrect) {
-      dispatch(quizActions.addMistake(quiz[currentQuestionNumber - 1].questionWord));
+      dispatch(quizActions.addMistake(currentWord));
+      newMistakes.push(currentWord)
     }
 
     if (currentQuestionNumber === 10) {
       const result: Result = {
         id: uid(),
         time: new Date().toLocaleString(),
-        resultMark: `${10 - mistakes.length}/10`,
-        mistakes
+        resultMark: `${10 - newMistakes.length}/10`,
+        mistakes: newMistakes
       }
 
       dispatch(quizActions.addResult(result))
