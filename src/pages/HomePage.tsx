@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Vocabulary from "../components/Vocabulary/Vocabulary";
-// import * as wordsActions from '../redux/slices/wordsSlice';
 import { useAppSelector } from "../redux/hooks";
 import { Button, Modal } from "@mui/material";
 import AddingWordForm from "../components/AddingWordForm/AddingWordForm";
@@ -33,7 +32,7 @@ function HomePage() {
           aria-describedby="modal-modal-description"
         >
           <div>
-            <AddingWordForm />
+            <AddingWordForm onClose={() => setIsAdding(false)} />
           </div>
         </Modal>
       )

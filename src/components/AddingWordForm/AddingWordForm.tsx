@@ -1,4 +1,5 @@
-import { Box, Button, TextField } from "@mui/material";
+import { Box, Button, IconButton, TextField } from "@mui/material";
+import CloseIcon from '@mui/icons-material/Close';
 import { uid } from 'uid';
 import { useState } from "react";
 import { useAppDispatch } from "../../redux/hooks";
@@ -14,10 +15,10 @@ const modalStyle = {
   bgcolor: 'background.paper',
   border: '2px solid #000',
   boxShadow: 24,
-  p: 4,
+  p: 5,
 };
 
-function AddingWordForm() {
+function AddingWordForm({ onClose }) {
   const dispatch = useAppDispatch();
 
   const [englishWord, setEnglishWord] = useState('');
@@ -40,6 +41,9 @@ function AddingWordForm() {
 
   return (
     <Box sx={modalStyle}>
+      <IconButton sx={{ position: 'absolute', right: 3, top: 3 }} onClick={onClose}>
+        <CloseIcon />
+      </IconButton>
       <form onSubmit={handleSumbit}>
         <TextField
           value={englishWord}
