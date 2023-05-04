@@ -28,8 +28,8 @@ function AddingWordForm() {
 
     const newWord: Word = {
       id: uid(),
-      eng: englishWord,
-      ukr: ukrainianWord,
+      eng: englishWord[0].toLocaleUpperCase() + englishWord.slice(1),
+      ukr: ukrainianWord[0].toLocaleUpperCase() + ukrainianWord.slice(1),
     }
 
     dispatch(wordsActions.addWord(newWord))
